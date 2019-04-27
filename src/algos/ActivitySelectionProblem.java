@@ -1,13 +1,36 @@
 package algos;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class ActivitySelectionProblem {
 
 	public static void main(String[] args) {
 
+		String A[] = {"2", "1", "5", "3", "4"};
+		String B[] = {"6", "7", "5", "3", "4"};
+        SortedSet<String> aSet = new TreeSet<>(Arrays.asList(A));
+        SortedSet<String> bSet = new TreeSet<>(Arrays.asList(B));
+        System.out.println(aSet);
+        for(String x : bSet) {
+			if(aSet.contains(x))
+				aSet.remove(x);
+			else
+				aSet.add(x);
+		}
+        String res = aSet + "";
+        res = res.replace("[","{");
+        res = res.replace("]","}");
+        System.out.println(res);
+        Integer aa[] = Arrays.stream(A).map(Integer::parseInt).toArray(Integer[]::new);
+        		//Arrays.stream(Arrays.stream(A).mapToInt(Integer::parseInt).toArray()).boxed().toArray(Integer[]::new);
+        System.out.println(aa[0]);
+        System.exit(0);
+		
 		Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while(t>0) {
