@@ -11,6 +11,7 @@ public class ActivitySelectionProblem {
 
 	public static void main(String[] args) {
 
+		/* Other Sample Code - starts*/
 		String A[] = {"2", "1", "5", "3", "4"};
 		String B[] = {"6", "7", "5", "3", "4"};
         SortedSet<String> aSet = new TreeSet<>(Arrays.asList(A));
@@ -30,7 +31,9 @@ public class ActivitySelectionProblem {
         		//Arrays.stream(Arrays.stream(A).mapToInt(Integer::parseInt).toArray()).boxed().toArray(Integer[]::new);
         System.out.println(aa[0]);
         System.exit(0);
-		
+        /* Other Sample Code - ends*/
+        
+        
 		Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while(t>0) {

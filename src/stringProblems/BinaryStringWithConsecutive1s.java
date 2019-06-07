@@ -1,4 +1,4 @@
-package preTest;
+package stringProblems;
 
 /*
 Find the number of binary strings of length N with at least X consecutive 1s

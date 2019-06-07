@@ -1,4 +1,4 @@
-package preTest;
+package stringProblems;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 public class AllPermutationsOfGivenString {
 
 	public static void main(String[] args) {
-		String str = "123";
+		String str = "113";
 		char input[] = str.toCharArray();
 		Map<Character, Integer> map = new HashMap<>();
 		for(char ch : input) {
