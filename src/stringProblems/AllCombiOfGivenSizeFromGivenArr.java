@@ -9,40 +9,75 @@ public class AllCombiOfGivenSizeFromGivenArr {
 
 		int x = 13;
 		int y = 17;
-		int n = 3;
-		
+		int n = 4;
+
 		int arr[] = new int[y-x+1];
 		for(int i=0;i<arr.length;i++) {
 			arr[i] = x+i;
-			//System.out.println(arr[i]);
 		}
-		int data[] = new int[n-2];
+		// n-2 coz first and last place holders are occupied by min i.e. x and max i.e. y.
+		int res[] = new int[n-2];
 		Set<Long> set = new HashSet<>();
-		getUniqueSum(arr, arr.length, n-2, 0, data, 0, set);
+		getUniqueSum(arr, 0, res, 0, set);
 		System.out.println(set.size());
-				
+		
+		System.out.println("Print All Combinations - Alternate approach");
+		printAllPermutations(arr, res, 0);
+
 	}
 
-	private static void getUniqueSum(int[] arr, int arrLen, int dataLen, int idx, int[] data, int i, Set<Long> set) {
-        if (idx == dataLen) 
-        { 
-        	Long sum = 0l;
-            for (int j=0; j<dataLen; j++) {
-            	System.out.print(data[j]);
-            	sum+=data[j];
-            }
-            System.out.println();
-            set.add(sum);
-        return; 
-        } 
-  
-        if (i >= arrLen) 
-        return; 
-  
-        data[idx] = arr[i]; 
-        getUniqueSum(arr, arrLen, dataLen, idx+1, data, i, set); 
-  
-        getUniqueSum(arr, arrLen, dataLen, idx, data, i+1, set); 
+	private static void getUniqueSum(int[] arr, int i, int[] res, int idx, Set<Long> set) {
+		if (idx == res.length) 
+		{ 
+			Long sum = 0l;
+			for (int j=0; j<res.length; j++) {
+				System.out.print(res[j]);
+				sum+=res[j];
+			}
+			System.out.println();
+			set.add(sum);
+			return; 
+		} 
+
+		if (i >= arr.length) 
+			return; 
+
+		res[idx] = arr[i]; 
+		getUniqueSum(arr, i, res, idx+1, set);// considering repeatation allowed
+	  //getUniqueSum(arr, i+1, res, idx+1, set);// considering repeatation not allowed
+
+		getUniqueSum(arr, i+1, res, idx, set); 
 	}
 
+	
+	private static void printAllPermutations(int[] arr, int[] res, int level) { //Considering ab != ba
+		if(level==res.length) {
+			for(int i=0;i<res.length;i++) {
+				System.out.print(res[i] + " ");
+			}
+			System.out.println();
+			return;
+		}
+		
+		for(int i=0;i<arr.length;i++) {
+			res[level] = arr[i];
+			printAllPermutations(arr, res, level+1);
+		}
+	}
+	
+
+	private static void printAllCombinations(int[] arr, int idx, int[] res, int level) { //Considering ab == ba
+		if(level==res.length) {
+			for(int i=0;i<res.length;i++) {
+				System.out.print(res[i] + " ");
+			}
+			System.out.println();
+			return;
+		}
+		
+		for(int i=idx;i<arr.length;i++) {
+			res[level] = arr[i];
+			printAllCombinations(arr, i, res, level+1);
+		}
+	}
 }
