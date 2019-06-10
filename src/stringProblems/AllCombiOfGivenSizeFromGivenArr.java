@@ -15,8 +15,7 @@ public class AllCombiOfGivenSizeFromGivenArr {
 		for(int i=0;i<arr.length;i++) {
 			arr[i] = x+i;
 		}
-		// n-2 coz first and last place holders are occupied by min i.e. x and max i.e. y.
-		int res[] = new int[n-2];
+		int res[] = new int[n];
 		Set<Long> set = new HashSet<>();
 		getUniqueSum(arr, 0, res, 0, set);
 		System.out.println(set.size());

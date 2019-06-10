@@ -10,7 +10,7 @@ public class AllCombiPicking1ElementFromEachArray {
 
 		String str = "1234567891";
 		int n = str.length();
-		int x = 5;
+		int x = 3;
 		int k = 10;
 		List<List<Integer>> lOl = new ArrayList<>(); // List Of List
 		List<Integer> curList = null;
@@ -51,7 +51,7 @@ public class AllCombiPicking1ElementFromEachArray {
 			idx[i] = 0;
 		}
 
-		while (true) { 
+		while (true) {
 			int num = 0;
 			for (int i = 0; i < n; i++) {
 				num = num*10 + lOl.get(i).get(idx[i]);
@@ -64,10 +64,10 @@ public class AllCombiPicking1ElementFromEachArray {
 			if (nxt < 0)
 				return;
 			idx[nxt]++;
-			for (int i = nxt+1; i<n; i++) {	
+			for (int i = nxt+1; i<n; i++) {
 				idx[i] = 0; 
 			}
-		} 
-	} 
+		}
+	}
 
 }

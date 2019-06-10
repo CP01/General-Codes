@@ -10,7 +10,54 @@ public class MinSubStringWithAllDistinctChar {
 
 	public static void main(String[] args) {
 
-		String input[] = {"baacdb", "aaacbbcdcbbcaabc"};
+		String input[] = {"baacdb", "aaacbbcdcbbcaabc", "abcdabcd", "aabbccdd"};
+		long start = System.nanoTime();
+		approach1(input); // Efficient one
+		long app1 = (System.nanoTime()-start);
+		System.out.println("------");
+		start = System.nanoTime();
+		approach2(input); // Slower
+		long app2 = (System.nanoTime()-start);
+		System.out.println("app1-app2 " + (app1-app2));
+	}
+	
+	public static void approach1(String[] input) {
+		for(String str : input) {
+			int size = str.length();
+			HashMap<Character, Integer> map = new HashMap<>();
+			for(char ch : str.toCharArray()) {
+				map.put(ch,0);
+			}
+			int count = 0, minLen = Integer.MAX_VALUE;
+			int curLen = size, startIndex = 0, start = 0;
+			for(int i=0;i<size;i++) {
+				char ch = str.charAt(i);
+				if(map.containsKey(ch)) {
+					map.put(ch, map.get(ch)+1);
+					if(map.get(ch) == 1) {
+						count++;
+					}
+				}
+				
+				if(count == map.size()) {
+					while(map.containsKey(str.charAt(start)) && map.get(str.charAt(start))>1) {
+						map.put(str.charAt(start), map.get(str.charAt(start))-1);
+						start++;
+					}
+					
+					curLen = i-start;
+					if(curLen<minLen) {
+						minLen = curLen;
+						startIndex = start;
+					}
+				}
+				
+			}
+			System.out.println(str.substring(startIndex, startIndex+minLen+1));
+		}
+	}
+	
+	public static void approach2(String[] input) {
 		for(String str : input) {
 			int size = str.length();
 			HashSet<String> distinctSet = new HashSet<>();
@@ -19,7 +66,7 @@ public class MinSubStringWithAllDistinctChar {
 			}
 			int distinctCount = distinctSet.size();
 			boolean isFound = false;
-			for(int i=distinctCount; i<size; i++) {
+			for(int i=distinctCount; i<size; i++) { //Considering window size and increasing it in every loop
 				if(isFound) {
 					break;
 				}
@@ -60,7 +107,6 @@ public class MinSubStringWithAllDistinctChar {
 				}
 				
 			}
-
 		}
 	}
 
