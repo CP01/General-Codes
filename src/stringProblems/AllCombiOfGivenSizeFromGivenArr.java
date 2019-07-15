@@ -7,9 +7,9 @@ public class AllCombiOfGivenSizeFromGivenArr {
 
 	public static void main(String[] args) {
 
-		int x = 13;
-		int y = 17;
-		int n = 4;
+		int x = 2;
+		int y = 4;
+		int n = 3;
 
 		int arr[] = new int[y-x+1];
 		for(int i=0;i<arr.length;i++) {
@@ -20,8 +20,10 @@ public class AllCombiOfGivenSizeFromGivenArr {
 		getUniqueSum(arr, 0, res, 0, set);
 		System.out.println(set.size());
 		
-		System.out.println("Print All Combinations - Alternate approach");
+		System.out.println("Print All Permutations - Alternate approach");
 		printAllPermutations(arr, res, 0);
+		System.out.println("Print All Combinations - Alternate approach");
+		printAllCombinations(arr, 0, res, 0);
 
 	}
 

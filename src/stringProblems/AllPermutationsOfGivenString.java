@@ -6,7 +6,7 @@ import java.util.Map;
 public class AllPermutationsOfGivenString {
 
 	public static void main(String[] args) {
-		String str = "113";
+		String str = "abc";
 		char input[] = str.toCharArray();
 		Map<Character, Integer> map = new HashMap<>();
 		for(char ch : input) {
@@ -33,6 +33,7 @@ public class AllPermutationsOfGivenString {
 				System.out.print(ch);
 			}
 			System.out.println();
+			//return;
 		}
 		
 		for(int i=0;i<chArr.length;i++) {

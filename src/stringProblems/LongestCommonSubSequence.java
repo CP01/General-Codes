@@ -33,7 +33,7 @@ public class LongestCommonSubSequence {
 			for(int j=a.length();j>0;) {
 				if(dp[i][j-1]==dp[i][j]) {
 					j--;
-					if(j==0)
+					if(j==0) // Do we need this ???
 						i--;
 					continue;
 				}

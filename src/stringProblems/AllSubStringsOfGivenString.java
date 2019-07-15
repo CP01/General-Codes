@@ -7,16 +7,22 @@ public class AllSubStringsOfGivenString {
 
 	public static void main(String[] args) {
 
-		String str = "abc";
+		// Has issue - not printing cases like abd
+		String str = "abcd";
 		Set<String> set = new LinkedHashSet<>(); // for handling cases of repeated char in string
-		printAllSubStringsIteratively(str, set);
+		bestSolution(str);
 		for(String s : set) {
 			System.out.println(s);
 		}
 	}
 
-	public static void printAllSubStringsRecursively(String str) {
-		
+	public static void bestSolution(String str) {
+		// https://stackoverflow.com/questions/15726641/find-all-possible-substring-in-fastest-way
+		// This is the only best solution O(N^2) for this problem. Refer stackoverflow answer.
+		int n = str.length();
+		for (int i = 0; i < n; i++)  
+	           for (int j = i+1; j <= n; j++) 
+	                System.out.println(str.substring(i, j)); 
 	}
 
 	public static void printAllSubStringsIteratively(String str, Set<String> set) {

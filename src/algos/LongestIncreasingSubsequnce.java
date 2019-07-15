@@ -19,7 +19,7 @@ public class LongestIncreasingSubsequnce {
 		//sequence[0].add(input[0]);
 		
 		for(int i=1;i<input.length;i++) {
-			for(int j=0;j<input.length;j++) {
+			for(int j=0;j<i;j++) {
 				if (input[j] < input[i] /* && count[i] <= count[j] //Not required as count[j] already have all count before j */) {
 					count[i] = count[j] + 1;
 					sequence[i].clear();

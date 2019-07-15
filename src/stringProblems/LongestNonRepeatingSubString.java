@@ -22,10 +22,8 @@ public class LongestNonRepeatingSubString {
 				}
 				curLen = i - map.get(c);
 				prevIdx = map.get(c)+1;
-				if(curLen==1)
-				{
-					map.clear();
-				}
+				map.clear();
+				curLen = 1;
 				map.put(c, i);
 			}
 			else {

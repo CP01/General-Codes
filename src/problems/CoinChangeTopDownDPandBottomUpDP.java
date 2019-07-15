@@ -20,7 +20,7 @@ public class CoinChangeTopDownDPandBottomUpDP {
 		System.out.println("by Top Down Approach "+ cc.minCoinsTopDownDP(coins, total, map));
 		System.out.println("Time taken by DP "+ (System.currentTimeMillis() - start));
 		start = System.currentTimeMillis();
-		System.out.println("by Iterative Approach "+ cc.minCoinIterative(coins, total));
+		//System.out.println("by Iterative Approach "+ cc.minCoinIterative(coins, total));
 		System.out.println("Time taken by Iterative "+ (System.currentTimeMillis() - start));
 
 	}
